@@ -12,6 +12,7 @@ class Migration(SchemaMigration):
         db.create_table(u'posts_post', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=2048)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=2048)),
             ('content', self.gf('django.db.models.fields.TextField')()),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
@@ -30,6 +31,7 @@ class Migration(SchemaMigration):
             'content': ('django.db.models.fields.TextField', [], {}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '2048'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '2048'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'})
         }
