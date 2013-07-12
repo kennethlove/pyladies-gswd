@@ -1,0 +1,9 @@
+<section class="post pure-u-1">
+    <header class="post-header">
+    <h2 class="post-title pure-u-1"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        <p class="post-meta pure-u-1">Posted: <time>{{ post.updated_at }}</time></p>
+    </header>
+    <div class="post-description pure-u-1">
+        {{ post.excerpt_html|safe }}
+    </div>
+</section>

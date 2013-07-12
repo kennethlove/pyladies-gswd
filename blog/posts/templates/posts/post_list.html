@@ -1,12 +1,5 @@
 {% extends "layouts/base.html" %}
 
 {% block page_content %}
-    <h1>Blog posts</h1>
-    {% if post_list %}
-        <ol>
-            {% for post in post_list %}
-                <li><a href="{{ post.get_absolute_url }}">{{ post }}</a></li>
-            {% endfor %}
-        </ol>
-    {% endif %}
+    {% include "posts/partials/_list.html" with posts=post_list %}
 {% endblock %}

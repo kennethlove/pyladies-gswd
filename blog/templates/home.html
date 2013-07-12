@@ -3,6 +3,9 @@
 
 {% block page_content %}
     <h1>Hi there!</h1>
-    <h2>Newest posts</h2>
-    {% show_posts %}
+
+    <div class="posts pure-g">
+        <h1 class="content-subhead pure-u-1">Recent Posts</h1>
+        {% show_posts %}
+    </div>
 {% endblock %}
