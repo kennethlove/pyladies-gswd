@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+
+{% block page_content %}
+    <h1>Blog posts</h1>
+    {% if post_list %}
+        <ol>
+            {% for post in post_list %}
+                <li>{{ post }}</li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+{% endblock %}
