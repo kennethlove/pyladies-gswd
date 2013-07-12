@@ -28,6 +28,18 @@
             </div>
             <div class="pure-u-1 content">
                 {% block page_content %}{% endblock %}
+
+                <footer class="footer">
+                    {% load flatpages %}
+                    {% get_flatpages as flatpages %}
+                    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                        <ul>
+                            {% for page in flatpages %}
+                                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </footer>
             </div>
         </div>
     </body>

@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block page_title %}{{ flatpage.title }} | {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    <div class="posts pure-g">
+        <section class="post pure-u-1">
+            <header class="post-header">
+                <h2 class="post-title pure-u-1">{{ flatpage.title }}</h2>
+            </header>
+            <div class="post-description pure-u-1">
+                {{ flatpage.content }}
+            </div>
+        </section>
+    </div>
+{% endblock %}
