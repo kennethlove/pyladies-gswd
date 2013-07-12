@@ -11,12 +11,13 @@ class Migration(SchemaMigration):
         # Adding model 'Post'
         db.create_table(u'posts_post', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('status', self.gf('model_utils.fields.StatusField')(default='draft', max_length=100, no_check_for_status=True)),
+            ('status_changed', self.gf('model_utils.fields.MonitorField')(default=datetime.datetime.now, monitor=u'status')),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=2048)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=2048)),
             ('content', self.gf('django.db.models.fields.TextField')()),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('status', self.gf('django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal(u'posts', ['Post'])
 
@@ -33,7 +34,8 @@ class Migration(SchemaMigration):
             'created_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '2048'}),
-            'status': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'status': ('model_utils.fields.StatusField', [], {'default': "'draft'", 'max_length': '100', u'no_check_for_status': 'True'}),
+            'status_changed': ('model_utils.fields.MonitorField', [], {'default': 'datetime.datetime.now', u'monitor': "u'status'"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '2048'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'})
         }
