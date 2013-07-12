@@ -8,3 +8,6 @@ class Post(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(default=timezone.now)
 
+    def __unicode__(self):
+        return self.title
+
