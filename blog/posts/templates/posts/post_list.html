@@ -5,7 +5,7 @@
     {% if post_list %}
         <ol>
             {% for post in post_list %}
-                <li><a href="{% url 'posts:detail' post.slug %}">{{ post }}</a></li>
+                <li><a href="{{ post.get_absolute_url }}">{{ post }}</a></li>
             {% endfor %}
         </ol>
     {% endif %}

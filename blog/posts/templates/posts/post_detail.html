@@ -3,6 +3,7 @@
 {% block page_title %}{{ post.title }} | {{ block.super }}{% endblock %}
 
 {% block page_content %}
+    <p><a href="{% url 'posts:list' %}">&larr; back to list</a></p>
     <h1>{{ post.title }}</h1>
     <p>Updated: {{ post.updated_at }}</p>
     {{ post.content }}

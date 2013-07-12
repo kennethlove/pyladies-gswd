@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 
@@ -20,3 +21,6 @@ class Post(StatusModel):
         if not self.pk:
             self.created_at = timezone.now()
         super(Post, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('posts:detail', kwargs={'slug': self.slug})
