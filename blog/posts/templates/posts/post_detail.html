@@ -6,5 +6,5 @@
     <p><a href="{% url 'posts:list' %}">&larr; back to list</a></p>
     <h1>{{ post.title }}</h1>
     <p>Updated: {{ post.updated_at }}</p>
-    {{ post.content }}
+    {{ post.content_html|safe }}
 {% endblock %}

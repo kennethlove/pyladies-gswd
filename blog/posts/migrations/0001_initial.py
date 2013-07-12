@@ -15,7 +15,10 @@ class Migration(SchemaMigration):
             ('status_changed', self.gf('model_utils.fields.MonitorField')(default=datetime.datetime.now, monitor=u'status')),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=2048)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=2048)),
+            ('excerpt', self.gf('django.db.models.fields.TextField')(blank=True)),
+            ('excerpt_html', self.gf('django.db.models.fields.TextField')(blank=True)),
             ('content', self.gf('django.db.models.fields.TextField')()),
+            ('content_html', self.gf('django.db.models.fields.TextField')(blank=True)),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
         ))
@@ -31,7 +34,10 @@ class Migration(SchemaMigration):
         u'posts.post': {
             'Meta': {'object_name': 'Post'},
             'content': ('django.db.models.fields.TextField', [], {}),
+            'content_html': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
+            'excerpt': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'excerpt_html': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '2048'}),
             'status': ('model_utils.fields.StatusField', [], {'default': "'draft'", 'max_length': '100', u'no_check_for_status': 'True'}),
