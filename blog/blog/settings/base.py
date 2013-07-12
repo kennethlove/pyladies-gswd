@@ -127,7 +127,9 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'south',
 )
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'posts',
+)
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # A sample logging configuration. The only tangible logging
