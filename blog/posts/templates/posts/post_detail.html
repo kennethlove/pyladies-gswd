@@ -3,8 +3,15 @@
 {% block page_title %}{{ post.title }} | {{ block.super }}{% endblock %}
 
 {% block page_content %}
-    <p><a href="{% url 'posts:list' %}">&larr; back to list</a></p>
-    <h1>{{ post.title }}</h1>
-    <p>Updated: {{ post.updated_at }}</p>
-    {{ post.content_html|safe }}
+    <div class="posts pure-g">
+        <section class="post pure-u-1">
+            <header class="post-header">
+                <h2 class="post-title pure-u-1">{{ post.title }}</h2>
+                <p class="post-meta pure-u-1">Posted: <time>{{ post.updated_at }}</time></p>
+            </header>
+            <div class="post-description pure-u-1">
+                {{ post.content_html|safe }}
+            </div>
+        </section>
+    </div>
 {% endblock %}
