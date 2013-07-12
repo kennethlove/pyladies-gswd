@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.shortcuts import render
 
 from .models import Post
 
@@ -10,7 +11,11 @@ def post_list_view(request):
 
 
 def post_detail_view(request, slug):
-    post = get_object_or_404(Post, status=True, slug=slug)
+    try:
+        post = Post.objects.live().get(slug=slug)
+    except Post.DoesNotExist:
+        raise Http404("That post doesn't exist")
+
     return render(request, 'posts/post_detail.html', {
         'post': post
     })
