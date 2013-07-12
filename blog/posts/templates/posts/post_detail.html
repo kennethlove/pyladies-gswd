@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+
+{% block page_title %}{{ post.title }} | {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    <h1>{{ post.title }}</h1>
+    <p>Updated: {{ post.updated_at }}</p>
+    {{ post.content }}
+{% endblock %}
