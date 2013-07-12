@@ -128,6 +128,7 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'south',
+    'discover_runner',
 )
 LOCAL_APPS = (
     'posts',
@@ -162,3 +163,5 @@ LOGGING = {
         },
     }
 }
+
+TEST_RUNNER = 'discover_runner.DiscoverRunner'
