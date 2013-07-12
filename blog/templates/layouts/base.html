@@ -2,8 +2,27 @@
 <html>
     <head>
         <title>{% block page_title %}My Blog{% endblock %}</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/pyladies.css">
     </head>
     <body>
-        {% block page_content %}{% endblock %}
+        <div class="pure-g-r layout">
+            <div class="pure-u sidebar">
+                <header class="header pure-u-1">
+                    <hgroup>
+                        <h1 class="brand-title">My Blog</h1>
+                        <h2 class="brand-tagline">Kenneth Love</h2>
+                    </hgroup>
+                    <nav class="nav">
+                        <ul class="nav-list">
+                            <!-- we'll put links here -->
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+            <div class="pure-u-1 content">
+                {% block page_content %}{% endblock %}
+            </div>
+        </div>
     </body>
 </html>
