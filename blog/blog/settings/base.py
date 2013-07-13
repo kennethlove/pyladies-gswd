@@ -13,7 +13,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('kenneth', 'kennethlove@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -121,6 +121,7 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'south',
+    'postmark',
 )
 LOCAL_APPS = (
     'posts',
@@ -156,3 +157,8 @@ LOGGING = {
     }
 }
 
+try:
+    EMAIL_BACKEND = "postmark.backends.PostmarkBackend"
+    POSTMARK_API_KEY = os.environ["POSTMARK_API_KEY"]
+except KeyError:
+    pass
