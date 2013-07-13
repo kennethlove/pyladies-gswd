@@ -3,3 +3,4 @@ psycopg2==2.5.1
 South==0.7.6
 misaka==1.0.2
 django-model-utils==1.4.0
+dj-database-url==0.2.1
