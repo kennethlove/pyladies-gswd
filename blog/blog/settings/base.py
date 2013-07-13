@@ -122,6 +122,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'south',
     'raven.contrib.django.raven_compat',
+    'gunicorn',
 )
 LOCAL_APPS = (
     'posts',

@@ -5,3 +5,4 @@ misaka==1.0.2
 django-model-utils==1.4.0
 dj-database-url==0.2.1
 raven==3.4.0
+gunicorn==17.5
