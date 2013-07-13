@@ -121,7 +121,7 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'south',
-    'postmark',
+    'raven.contrib.django.raven_compat',
 )
 LOCAL_APPS = (
     'posts',
@@ -157,8 +157,3 @@ LOGGING = {
     }
 }
 
-try:
-    EMAIL_BACKEND = "postmark.backends.PostmarkBackend"
-    POSTMARK_API_KEY = os.environ["POSTMARK_API_KEY"]
-except KeyError:
-    pass
